@@ -8,7 +8,12 @@ router.post('/register', authController.registerUser);
 router.post('/login', authController.loginUser);
 
 // Rotas protegidas por token
+router.post('/login/google', authController.loginComGoogle);
+
 router.post('/logout', autenticarToken, authController.logout);
+
+router.post('/enviar-codigo', authController.enviarCodigoVerificacao);
+router.post('/validar-codigo', authController.validarCodigoVerificacao);
 router.delete('/excluir-conta', autenticarToken, authController.excluirConta);
 
 module.exports = router;
