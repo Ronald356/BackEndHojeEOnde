@@ -5,7 +5,28 @@ const { enviarEmailVerificacao } = require('../services/emailService');
 const codigoService = require('../services/codigoService');
 
 async function registerUser(req, res) {
-  // seu código de registro aqui
+  const { email, senha, nome } = req.body;
+
+  if (!email || !senha || !nome) {
+    return res.status(400).json({ error: 'Por favor, informe nome, email e senha.' });
+  }
+
+  try {
+    const existingUser = await userService.encontrarUsuario(email);
+    if (existingUser) {
+      return res.status(409).json({ error: 'Usuário já cadastrado com esse email.' });
+    }
+
+    const saltRounds = 10;
+    const hashedPassword = await bcrypt.hash(senha, saltRounds);
+
+    await userService.criarUsuario(nome, email, hashedPassword);
+
+    res.status(201).json({ message: 'Usuário cadastrado com sucesso!' });
+  } catch (error) {
+    console.error('Erro no cadastro:', error);
+    res.status(500).json({ error: 'Erro interno no servidor.' });
+  }
 }
 
 async function loginUser(req, res) {

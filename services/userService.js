@@ -1,11 +1,10 @@
 const pool = require('../db/pool');
 
 async function encontrarUsuario(email) {
-  const client = await pool.connect();
-  const result = await client.query('SELECT * FROM usuarios WHERE email = $1', [email]);
-  client.release();
+  const result = await pool.query('SELECT * FROM usuarios WHERE email = $1', [email]);
   return result.rows[0];
 }
+
 
 async function criarUsuario(nome, email, senhaHash) {
   const client = await pool.connect();
@@ -32,12 +31,4 @@ module.exports = {
   criarUsuario,
   excluirUsuario,
   encontrarUsuarioPorId,  // <- adiciona aqui
-};
-
-
-module.exports = {
-  encontrarUsuario,
-  criarUsuario,
-  excluirUsuario,
-  encontrarUsuarioPorId
 };
