@@ -2,17 +2,18 @@
 
 ## Descrição
 
-Backend da aplicação **Hoje é Onde**, um sistema que permite usuários se cadastrarem, fazer login, excluir suas contas e gerenciar dados via API RESTful. O backend foi construído em Node.js com Express, usando PostgreSQL para banco de dados e JWT para autenticação.
+Backend da aplicação **Hoje é Onde**, um sistema que permite usuários se cadastrarem, fazer login, excluir suas contas e gerenciar dados via API RESTful. O backend foi construído em Node.js com Express, utilizando PostgreSQL em container Docker para o banco de dados, e JWT para autenticação.
 
 ## Tecnologias Utilizadas
 
 - Node.js
 - Express
-- PostgreSQL (com pool de conexões)
+- PostgreSQL (rodando em container Docker)
 - JWT para autenticação
 - Bcrypt para hash de senhas
 - Ngrok para tunelamento e testes externos
 - Dotenv para variáveis de ambiente
+- Docker para containerização do banco de dados
 
 ## Funcionalidades
 
