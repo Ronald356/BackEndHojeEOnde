@@ -8,15 +8,18 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "Backend da aplicação **Hoje é Onde**, um sistema que permite usuários se cadastrarem, fazer login, excluir suas contas e gerenciar dados via API RESTful. O backend foi construído em Node.js com Express, utilizando PostgreSQL em container Docker para o banco de dados, e JWT para autenticação.",
   "dependencies": {
+    "axios": "^1.9.0",
     "bcrypt": "^6.0.0",
+    "cheerio": "^1.0.0",
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "google-auth-library": "^9.15.1",
     "jsonwebtoken": "^9.0.2",
     "multer": "^2.0.0",
+    "node-fetch": "^2.7.0",
     "nodemailer": "^7.0.3",
     "pg": "^8.16.0"
   }
